@@ -1,3 +1,4 @@
+import { DepartmentService } from './../department.service';
 import { CourseService } from './courses.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,13 +17,20 @@ import { Component, OnInit } from '@angular/core';
               {{c1}}
         </li>
       </ul>
+
+      <ul>
+        <li *ngFor = "let c2 of department">
+              {{c2}}
+        </li>
+      </ul>
       `,
   // styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
 
-  constructor( service : CourseService) {
+  constructor( service : CourseService, departmentService : DepartmentService) {
       this.students = service.getStudent();
+      this.department = departmentService.getDepartment();
    }
 
   ngOnInit(): void {
@@ -35,5 +43,5 @@ export class CoursesComponent implements OnInit {
 
   courses = ["course1","course2","course3"];
   students;
-
+  department;
 }
