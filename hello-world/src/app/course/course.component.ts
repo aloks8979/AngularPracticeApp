@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  selector: 'course',
+  template: `
+    <button class="btn btn-primary" [class.active]="isActive">Save</button>
+  `
+  //styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
 
+  isActive = true;
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
